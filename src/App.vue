@@ -3,6 +3,9 @@ import { RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
 import DrinkDetail from './components/DrinkDetail.vue';
+import { useDrinksStore } from './stores/drinks';
+
+const drinksStore = useDrinksStore();
 </script>
 
 <template>
@@ -17,6 +20,6 @@ import DrinkDetail from './components/DrinkDetail.vue';
     </router-view>
     <Footer />
 
-    <DrinkDetail />
+    <DrinkDetail v-if="drinksStore.isOpenDetail" />
   </div>
 </template>

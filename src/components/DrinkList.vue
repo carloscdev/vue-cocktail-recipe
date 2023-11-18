@@ -23,14 +23,14 @@ const breakpoints = {
   }
 }
 const settings = {
-  itemsToShow: 1,
+  itemsToShow: 1.25,
   snapAlign: 'start',
 }
 </script>
 
 <template>
   <main class="container mx-auto py-24 fadeInUp" style="animation-delay: 500ms;">
-    <h2 class="font-['Pacifico'] text-3xl flex items-center justify-between mb-12 capitalize">
+    <h2 class="font-['Pacifico'] text-3xl flex flex-col sm:flex-row items-center gap-3  justify-between mb-12 capitalize">
       <p>Explore <span class="text-primary">{{ drinksStore.searchStatic }} recipes</span></p>
       <small class="font-sans opacity-50 text-sm">Total: {{ drinksStore.drinks.length }}</small>
     </h2>
