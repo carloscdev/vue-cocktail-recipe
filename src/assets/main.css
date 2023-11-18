@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --primary-color: #859c47;
+  --primary-dark-color: #6e8138;
+  --dark-color: #303030;
+}
+
+.container {
+  max-width: 1280px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+  from {
+      transform: translate3d(0,40px,0);
+      opacity: 0;
+  }
+
+  to {
+      transform: translate3d(0,0,0);
+      opacity: 1
+  }
+}
+.page-opacity-enter-active,
+.page-opacity-leave-active {
+  transition: 600ms ease all;
+}
+
+.page-opacity-enter-from,
+.page-opacity-leave-to {
+  opacity: 0;
+}
+
+.page-opacity-enter-to,
+.page-opacity-leave-from {
+  opacity: 1;
+}
