@@ -45,7 +45,6 @@ export const useDrinksStore = defineStore("drinks", () => {
   const setCategories = (ctg: CategoryDrinkInterface[]) => {
     categories.value = ctg;
   };
-
   onMounted(async () => {
     await getCategories();
     await searchDrinks();
@@ -63,6 +62,6 @@ export const useDrinksStore = defineStore("drinks", () => {
     drink,
     drinks,
     setDrink,
-    searchDrinks,
+    searchDrinks
   };
 });

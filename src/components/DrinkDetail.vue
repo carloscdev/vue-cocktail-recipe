@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useDrinksStore } from '@/stores/drinks';
-import { XMarkIcon, HeartIcon } from '@heroicons/vue/24/outline';
+import { XMarkIcon } from '@heroicons/vue/24/outline';
 import type { DrinkInterface } from '@/interface/drink.interface';
 import { onMounted, onUnmounted } from 'vue';
+import FavoriteButton from './FavoriteButton.vue';
+
 
 const drinksStore = useDrinksStore();
 
@@ -24,9 +26,12 @@ onUnmounted(() => {
       <XMarkIcon class="w-10 absolute top-2 right-2 cursor-pointer" @click="drinksStore.setDrink('')" />
       <figure class="rounded-3xl overflow-hidden shadow-sm w-full sm:w-[70%] mx-auto relative">
         <img class="w-full" :src="drinksStore.drink?.strDrinkThumb" :alt="drinksStore.drink?.strDrink">
-        <div class="absolute w-10 h-10 rounded-full bg-white top-5 right-5 grid place-content-center group cursor-pointer">
-          <HeartIcon class="w-5 group-hover:text-primary" />
-        </div>
+        <FavoriteButton :drink="{
+          strDrink: drinksStore.drink!.strDrink,
+          strDrinkThumb: drinksStore.drink!.strDrinkThumb,
+          idDrink: drinksStore.drink!.idDrink
+          }"
+        />
       </figure>
       <h2 class="font-['Pacifico'] text-3xl capitalize text-center my-5 text-primary">
         {{ drinksStore.drink?.strDrink }}

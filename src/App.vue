@@ -4,8 +4,16 @@ import Navbar from './components/Navbar.vue';
 import Footer from './components/Footer.vue';
 import DrinkDetail from './components/DrinkDetail.vue';
 import { useDrinksStore } from './stores/drinks';
+import { useFavoritesStore } from './stores/favorites';
+import { onMounted } from 'vue';
+import Alert from './components/Alert.vue';
 
 const drinksStore = useDrinksStore();
+const favoritesStore = useFavoritesStore();
+
+onMounted(() => {
+  favoritesStore.loadFavorites();
+});
 </script>
 
 <template>
@@ -21,5 +29,6 @@ const drinksStore = useDrinksStore();
     <Footer />
 
     <DrinkDetail v-if="drinksStore.isOpenDetail" />
+    <Alert />
   </div>
 </template>

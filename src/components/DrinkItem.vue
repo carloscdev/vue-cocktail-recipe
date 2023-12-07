@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { ShortDrinkInterface } from '@/interface/drink.interface';
-import { HeartIcon } from '@heroicons/vue/24/outline';
 import { useDrinksStore } from '@/stores/drinks';
+import FavoriteButton from './FavoriteButton.vue';
 
 interface PropsInterface {
   drink: ShortDrinkInterface
@@ -22,8 +22,6 @@ defineProps<PropsInterface>();
         {{ drink.strDrink }}
       </h3>
     </div>
-    <div class="absolute w-10 h-10 rounded-full bg-white top-5 right-5 grid place-content-center group cursor-pointer">
-      <HeartIcon class="w-5 group-hover:text-primary" />
-    </div>
+    <FavoriteButton :drink="drink" />
   </li>
 </template>
